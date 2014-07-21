@@ -13,3 +13,14 @@ plt.figure()
 plt.plot(x,y,'b-')
 
 plt.show()
+
+
+
+'''
+plt.xlabel('# of elements in arrays')
+plt.ylabel('time to execute (s)')
+plt.legend(loc='upper left')
+
+plt.plot(x, yGPU, 'o', x_new, y_new,label='GPU - numba/cuda')
+plt.plot(x, yNumpy, 'ro', x_new2, y_new2,label='CPU - numpy')
+'''

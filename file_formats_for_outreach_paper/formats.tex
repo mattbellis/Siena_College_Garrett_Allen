@@ -1,4 +1,4 @@
-O%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Formats
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -15,17 +15,139 @@ O%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
-\begin{equation*}
-    f(x) = x^2
-\end{equation*}
+
+%Everything below is commented out to next coment
+\begin{comment}
+\begin{tikzpicture}
+    \begin{axis}[
+            title = {Compressed zipped text file formats speeds at various array sizes},
+            xlabel = {number of elements},
+            ylabel = {time (s)},
+            xmin = 0, xmax = 400000,
+            ymin = 0, ymax = 15,
+            xtick = {0, 100000, 200000, 300000, 400000},
+            ytick = {0, 5, 10, 15},
+ %           legend pos = north west,
+            ymajorgrids = true,
+            grid style = dashed,
+        ]
+
+        \addplot[
+            color = blue,
+            mark = square,
+        ]
+        coordinates {
+            (10000, .3)(109000, 3.1)(383000, 14.7)
+        };
+    \end{axis}
+\end{tikzpicture}
+
+
+% unzipped text file format
+\begin{tikzpicture}
+    \begin{axis}[
+            title = {Text file formats speeds at various array sizes},
+            xlabel = {number of elements},
+            ylabel = {time (s)},
+            xmin = 0, xmax = 400000,
+            ymin = 0, ymax = 15,
+            xtick = {0, 100000, 200000, 300000, 400000},
+            ytick = {0, 5, 10, 15},
+ %           legend pos = north west,
+            ymajorgrids = true,
+            grid style = dashed,
+        ]
+
+        \addplot[
+            color = blue,
+            mark = square,
+        ]
+        coordinates {
+            (10000, .3)(109000, 3.2)(383000,13.9 )
+        };
+    \end{axis}
+\end{tikzpicture}
 
 
 
 
+%Pickle file format
+\begin{tikzpicture}
+    \begin{axis}[
+            title = {pickle file formats speeds at various array sizes},
+            xlabel = {number of elements},
+            ylabel = {time (s)},
+            xmin = 0, xmax = 400000,
+            ymin = 0, ymax = 50,
+            xtick = {0, 100000, 200000, 300000, 400000},
+            ytick = {0, 10, 20, 30 ,40, 50},
+ %           legend pos = north west,
+            ymajorgrids = true,
+            grid style = dashed,
+        ]
+
+        \addplot[
+            color = blue,
+            mark = square,
+        ]
+        coordinates {
+            (10000, .4)(109000, 9.5)(383000, 46.9)
+        };
+    \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+    \begin{axis}[
+            title = {Compressed zipped text file formats speeds at various array sizes},
+            xlabel = {number of elements},
+            ylabel = {time (s)},
+            xmin = 0, xmax = 400000,
+            ymin = 0, ymax = 15,
+            xtick = {0, 100000, 200000, 300000, 400000},
+            ytick = {0, 5, 10, 15},
+ %           legend pos = north west,
+            ymajorgrids = true,
+            grid style = dashed,
+        ]
+
+        \addplot[
+            color = blue,
+            mark = square,
+        ]
+        coordinates {
+            (10000, .3)(109000, 3.1)(383000, 14.7)
+        };
+    \end{axis}
+\end{tikzpicture}
 
 
+\begin{tikzpicture}
+    \begin{axis}[
+            title = {Compressed binary file formats speeds at various array sizes},
+            xlabel = {number of elements},
+            ylabel = {time (s)},
+            xmin = 0, xmax = 400000,
+            ymin = 0, ymax = 15,
+            xtick = {0, 100000, 200000, 300000, 400000},
+            ytick = {0, 5, 10, 15},
+ %           legend pos = north west,
+            ymajorgrids = true,
+            grid style = dashed,
+        ]
+
+        \addplot[
+            color = blue,
+            mark = square,
+        ]
+        coordinates {
+            (10000, .5)(109000, 21.7)(383000, 14.7)
+        };
+    \end{axis}
+\end{tikzpicture}
 
 
+\end{comment}
+%Everything above is commented
 
 
 
@@ -82,15 +204,33 @@ O%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             \hline
             Text File &13.9 & 161626452\\    
             \hline
-            Compressed Binary File & 113.8 & 7450000\\
+            Pickle File & 46.9 & 199000225\\
             \hline
             Non-Compressed File & 9.6 &162218402\\
             \hline
-            Pickle File & 46.9 & 199000225\\
+            Compressed Binary File & 113.8 & 7450000\\
         \end{tabular}
     \end{center}
 \end{table}
 
+
+
+\begin{table}[h!]
+    \begin{center}
+        \caption{Size 300kx40 Array}
+        \begin{tabular}{l|c|r}
+            File Type & Time(s) & Size(bytes)\\
+            \hline
+            Zipped Text File & 12.9 & 128477753\\
+            \hline
+            Pickle File & 7.5 & 266604050\\
+            \hline
+            Non-Compressed File & 5.9 &480000196\\
+            \hline
+            Compressed Binary File & 6.4 & 90529626\\
+        \end{tabular}
+    \end{center}
+\end{table}
 
 
 

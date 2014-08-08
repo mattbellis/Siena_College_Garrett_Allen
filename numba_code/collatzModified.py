@@ -3,7 +3,7 @@ from numba import cuda
 import numba
 import numpy as np
 import math
-
+import pickle
 
 
 
@@ -38,10 +38,10 @@ def conforms(arr_a, arr_b):
 
 
 my_gpu = numba.cuda.get_current_device()
-n = 500000000 * 10072 #5 * 10^8
+counter = 33520
+n = 500000000 * counter#5 * 10^8
 myrange = 500000000
 nNot = 0
-counter = 10072
 answer = np.ones(myrange, dtype = np.int64)
 numbers = np.arange(myrange, dtype=np.int64)
 numbers += n
@@ -49,7 +49,7 @@ thread_ct = my_gpu.WARP_SIZE
 block_ct = int(myrange / thread_ct)
 
 
-while n < 10000000000000:
+while n < 100000000000000:
 	counter += 1
 	ispossible = np.zeros(myrange, dtype = np.int64) 
 
@@ -71,8 +71,10 @@ while n < 10000000000000:
 	print "run # ", counter, numbers[0]
 	numbers += myrange
 	if n % 100000000000 == 0:
-		np.savetxt("currHighestNumber.txt", n)
-	
+        	q = n / 100000000000
+		f = open('currHighestNumber.txt', 'w')
+		f.write('%d' % q)
+		f.close()
 
 
 

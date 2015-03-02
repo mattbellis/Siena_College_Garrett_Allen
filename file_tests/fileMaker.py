@@ -137,9 +137,13 @@ def uniformify_3(collisions):
     return thingy
 
 def makeFiles():
-    inFile = open("fourhundredthousand.dat", "r")
-    inFile2 = open("hundredthousand.dat", "r")
-    inFile3 = open("thousand.dat", "r")# 10k text file
+    #'''
+    #inFile = open("fourhundredthousand.dat", "r")
+    #inFile2 = open("hundredthousand.dat", "r")
+    #inFile3 = open("thousand.dat", "r")# 10k text file
+    inFile3= open("mc_dy_1000collisions.dat", "r")
+    inFile2 = open("mc_dy.dat", "r")
+    inFile = open("mc_ttbar.dat", "r")
     forhund = cms_tools.get_collisions(inFile) #textfile runner
     onehund = cms_tools.get_collisions(inFile2)
     ten = cms_tools.get_collisions(inFile3)
@@ -152,6 +156,7 @@ def makeFiles():
     arr_3_0 = uniformify_1(forhund)
     arr_3_1 = uniformify_2(forhund)
     arr_3_2 = uniformify_3(forhund)
+    
     np.savez("onebyonesixty10k.npz", arr_1_0)
     np.savez_compressed("onebyonesixty10kcompressed.npz", arr_1_0)
     np.savez("fourbyforty10k.npz", arr_1_1)
@@ -173,6 +178,7 @@ def makeFiles():
     np.savez_compressed("fourbyforty400kcompressed.npz", arr_3_1)
     np.savez("thirtytwobyfive400k.npz", arr_3_2)
     np.savez_compressed("thirtytwobyfive400kcompressed.npz", arr_3_2)
+    #'''
 
 
     inFile10k = open("mc_dy_1000collisions.dat", "r")
